@@ -1,0 +1,95 @@
+// 1.   Construir una función POTEN(x, y), para calcular la potencia x y de dos números reales cualesquiera.
+// 2.	Construir una función FAC(n) para calcular el factorial de un entero, se debe validar que no es numero negativo.
+// 3.	Construir un programa, que mediante funciones, para hallar la suma de la siguiente serie, dados X y N enteros positivos:
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std;
+
+//Prototipo de funciones
+
+float POTEN(float x,int y);
+int FAC(int n);
+float serie(int X, int N);
+
+//Cuerpo principal
+
+void main()
+ {float pot,base,S;
+	 int opcion,exponente,n,facto;
+  // Inicio del menu
+  do
+    {cout<<"\n Menu \n";
+     cout<<"1.- Potencia \n";
+	 cout<<"2.- Factorial \n";
+	 cout<<"3.- Serie \n";
+	 cout<<"0.- Salir \n";
+	 cout<<"Opcion: ";
+     cin>>opcion;
+     switch(opcion)
+	   {
+		case 1:{
+			   cout<<"Ingrese el valor de la base: ";
+			   cin>> base;
+			   cout<<"Ingrese el valor del exponente: ";
+			   cin>> exponente;
+	           pot=POTEN(base,exponente);                //Llamada a POTEN
+			   cout<<"La potencia de "<<base<<"elevado a: "<<exponente<<" es: "<< pot;
+	           break;
+			   }
+	    case 2:{
+		       cout<<"Ingrese el valor de n: ";
+			   cin>> n;
+			   facto=FAC(n);                             //Llamada a FAC
+			   cout<<"El factorial de "<<n<<"es "<<facto;
+		       break;
+			   }
+	    case 3:{
+		       cout<<"Ingrese el valor de X: ";
+			   cin>> base;
+			   cout<<"Ingrese el valor de Y: ";
+			   cin>> exponente;
+	           S=serie(base,exponente);                  //Llamada a serie
+			   cout<<"La suma de la serie es"<<S;
+		       break;
+			   }
+	    case 0:{
+		       cout<<"Salir \n";
+		       break;
+			   }
+	    default:
+		       cout<<"Opcion invalida";
+	   }
+    }while(opcion!=0);
+ getch();
+}
+
+
+
+float POTEN(float x,int y)
+  {float P=1; //Acumulador de producto
+   for(int i=1;i<=y;i++)
+	   P=P*x;
+   return P;
+  }
+
+
+
+int FAC(int n)
+  {int P=1; //Acumulador de producto
+   for(int i=2;i<=n;i++)
+	   P=P*i;
+   return P;
+  }
+
+
+
+float serie(int X, int N)
+  {float S=0;                 //Acumulador de suma
+   for(int i=1;i<=N;i++)      //i es contador
+	   S=S+POTEN(X,i)/FAC(i);
+   return S;
+  }
