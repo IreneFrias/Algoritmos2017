@@ -1,6 +1,5 @@
-// 1.   Construir una función POTEN(x, y), para calcular la potencia x y de dos números reales cualesquiera.
-// 2.	Construir una función FAC(n) para calcular el factorial de un entero, se debe validar que no es numero negativo.
-// 3.	Construir un programa, que mediante funciones, para hallar la suma de la siguiente serie, dados X y N enteros positivos:
+//Nombre: Irene Frias Harriague
+//Fecha: 15/08/17
 
 #include "stdafx.h"
 #include <iostream>
@@ -19,49 +18,50 @@ float serie(int X, int N);
 
 void main()
  {float pot,base,S;
-	 int opcion,exponente,n,facto;
+  int opcion,exponente,n,facto;
   // Inicio del menu
   do
     {cout<<"\n Menu \n";
      cout<<"1.- Potencia \n";
-	 cout<<"2.- Factorial \n";
-	 cout<<"3.- Serie \n";
-	 cout<<"0.- Salir \n";
-	 cout<<"Opcion: ";
+     cout<<"2.- Factorial \n";
+     cout<<"3.- Serie \n";
+     cout<<"0.- Salir \n";
+     cout<<"Opcion: ";
      cin>>opcion;
      switch(opcion)
 	   {
-		case 1:{
-			   cout<<"Ingrese el valor de la base: ";
-			   cin>> base;
-			   cout<<"Ingrese el valor del exponente: ";
-			   cin>> exponente;
-	           pot=POTEN(base,exponente);                //Llamada a POTEN
-			   cout<<"La potencia de "<<base<<"elevado a: "<<exponente<<" es: "<< pot;
-	           break;
-			   }
+	    case 1:{
+	            cout<<"Ingrese el valor de la base: ";
+		    cin>> base;
+		    cout<<"Ingrese el valor del exponente: ";
+		    cin>> exponente;
+	            pot=POTEN(base,exponente);                //Llamada a POTEN
+		    cout<<"La potencia de "<<base<<"elevado a: "<<exponente<<" es: "<< pot;
+	            break;
+	           }
 	    case 2:{
-		       cout<<"Ingrese el valor de n: ";
-			   cin>> n;
-			   facto=FAC(n);                             //Llamada a FAC
-			   cout<<"El factorial de "<<n<<"es "<<facto;
-		       break;
-			   }
+		    cout<<"Ingrese el valor de n: ";
+	            cin>> n;
+		    facto=FAC(n);                             //Llamada a FAC
+	            cout<<"El factorial de "<<n<<"es "<<facto;
+		    break;
+	           }
 	    case 3:{
-		       cout<<"Ingrese el valor de X: ";
-			   cin>> base;
-			   cout<<"Ingrese el valor de Y: ";
-			   cin>> exponente;
-	           S=serie(base,exponente);                  //Llamada a serie
-			   cout<<"La suma de la serie es"<<S;
-		       break;
-			   }
+		    cout<<"Ingrese el valor de X: ";
+		    cin>> base;
+	            cout<<"Ingrese el valor de Y: ";
+	            cin>> exponente;
+	            S=serie(base,exponente);                  //Llamada a serie
+		    cout<<"La suma de la serie es"<<S;
+		    break;
+	           }
 	    case 0:{
-		       cout<<"Salir \n";
-		       break;
-			   }
-	    default:
-		       cout<<"Opcion invalida";
+		    cout<<"Salir \n";
+		    break;
+         	   }
+	    default:{
+		     cout<<"Opcion invalida";
+	            }
 	   }
     }while(opcion!=0);
  getch();
