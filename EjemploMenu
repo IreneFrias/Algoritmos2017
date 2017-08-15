@@ -32,35 +32,35 @@ void main()
 	   {
 	    case 1:{
 	            cout<<"Ingrese el valor de la base: ";
-		    cin>> base;
-		    cout<<"Ingrese el valor del exponente: ";
-		    cin>> exponente;
+		        cin>> base;
+		        cout<<"Ingrese el valor del exponente: ";
+		        cin>> exponente;
 	            pot=POTEN(base,exponente);                //Llamada a POTEN
-		    cout<<"La potencia de "<<base<<"elevado a: "<<exponente<<" es: "<< pot;
+		        cout<<"La potencia de "<<base<<"elevado a: "<<exponente<<" es: "<< pot;
 	            break;
 	           }
 	    case 2:{
-		    cout<<"Ingrese el valor de n: ";
+		        cout<<"Ingrese el valor de n: ";
 	            cin>> n;
-		    facto=FAC(n);                             //Llamada a FAC
+		        facto=FAC(n);                             //Llamada a FAC
 	            cout<<"El factorial de "<<n<<"es "<<facto;
-		    break;
+		        break;
 	           }
 	    case 3:{
-		    cout<<"Ingrese el valor de X: ";
-		    cin>> base;
+		        cout<<"Ingrese el valor de X: ";
+		        cin>> base;
 	            cout<<"Ingrese el valor de Y: ";
 	            cin>> exponente;
 	            S=serie(base,exponente);                  //Llamada a serie
-		    cout<<"La suma de la serie es"<<S;
-		    break;
+		        cout<<"La suma de la serie es"<<S;
+		        break;
 	           }
 	    case 0:{
-		    cout<<"Salir \n";
-		    break;
+		        cout<<"Salir \n";
+		        break;
          	   }
 	    default:{
-		     cout<<"Opcion invalida";
+		        cout<<"Opcion invalida";
 	            }
 	   }
     }while(opcion!=0);
