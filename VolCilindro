@@ -21,9 +21,9 @@ void main()
  }
 
 float vol_cilindro (float r, float a)   // DECLARACION
- { float v,pi=3.1415 ;	
-   v=pi*r*r*a;
-   return v;    
+ {float v,pi=3.141516 ;	
+  v=pi*r*r*a;
+  return v;    
  }
 
 
