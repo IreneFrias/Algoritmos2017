@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
-#include "stdlib.h"
+
 using namespace std;
 
 void solucion_sistema(float a, float b, float c, float d, float e, float f, float &x, float &y);
@@ -22,20 +22,20 @@ void main()
   cout << "    Dx + Ey + F = 0";
   cout << "\n";
   cout << "\n";
-  cout << "introduzca el valor de A: ";
+  cout << "Introduzca el valor de A: ";
   cin >> a;
-  cout << "introduzca el valor de B: ";
+  cout << "Introduzca el valor de B: ";
   cin >> b;
-  cout << "introduzca el valor de C: ";
+  cout << "Introduzca el valor de C: ";
   cin >> c;
-  cout << "introduzca el valor de D: ";
+  cout << "Introduzca el valor de D: ";
   cin >> d;
-  cout << "introduzca el valor de E: ";
+  cout << "Introduzca el valor de E: ";
   cin >> e;
-  cout << "introduzca el valor de F: ";
+  cout << "Introduzca el valor de F: ";
   cin >> f;
   solucion_sistema(a, b, c, d, e, f, x, y);
-  cout << "la solucion de la ecuacion es: ";
+  cout << "\nLa solucion de la ecuacion es: ";
   cout << "X= ";
   cout << x;
   cout << ", ";
