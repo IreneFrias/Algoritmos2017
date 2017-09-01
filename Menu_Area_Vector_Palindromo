@@ -1,0 +1,113 @@
+//Nombre: Irene Frias Harriague
+//Fecha: 31/08/17
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#include "math.h"
+#define ESPACIO '\n'
+#define N 30
+#define M 20
+
+using namespace std;
+
+float AREA(float a,float b, float c);
+void leervector(int A[],int n);
+void concatenar(int n,int A[],int m,int B[],int C[]);
+
+void main()
+{int tamanio,opc,n,m,A[N], B[M], C[M+N];
+ string palabra, reverso;
+ float a,b,c,area;
+ do 
+ {cout<<"\n\t\t\t---------MENU---------"<<endl;
+  cout<<"\n\t\t\t     1.- FUNCION"<<endl;
+  cout<<"\n\t\t\t     2.- VECTOR"<<endl;
+  cout<<"\n\t\t\t     3.- PALINDROMO"<<endl;
+  cout<<"\n\t\t\t     0.- SALIR"<<endl;
+  cout<<"\n Elija una opcion: ";
+  cin>>opc;
+  switch(opc)
+	  {case 1:cout<<"\n\t\t AREA DE UN TRIANGULO EN FUNCION DE SUS LADOS"<<endl;
+              cout<<"\n Ingrese los lados del triangulo: "<<endl;
+			  cin>> a;
+			  cin>> b;
+			  cin>> c;
+			  area=AREA(a,b,c);
+              cout<<"El area del triangulo es: "<<area<<endl;
+			  break;
+
+	   case 2:cout<<"\n\t\t CONCATENAR DOS VECTORES DE N Y M TAMAÑOS"<<endl;
+		      do
+		      {cout<<"\n Introduzca el tamaño del primer vector: ";
+		       cin>>n;
+			  }while(n>N);
+			  cout<<"\n Introduzca los valores del primer vector: ";
+			  leervector(A, n);
+			  do
+			  {cout<<"\n Introduzca el tamaño del segundo vector: ";
+		       cin>>m;
+			  }while(m>M);
+			  cout<<"\n Introduzca los valores del segundo vector: ";
+			  leervector(B, m);
+			  cout<<"\n El vector concatenado es: ";
+		      concatenar(n,A,m,B,C);
+		      break;
+
+	   case 3:cout<<"\n\t\t VERIFICAR SI UNA PALABRA ES PALINDROMO"<<endl;
+		      cout<<"\n Introduzca una palabra: ";
+              getline(cin,palabra,ESPACIO);
+			  cin>>palabra;
+              tamanio=palabra.length();	
+              for (int i=tamanio-1;i>=0;i--)
+	              {reverso=reverso+palabra[i];
+	              }
+              if (palabra==reverso)
+                  cout<<" Es un palindromo"<<endl;
+              else
+	              cout<<" No es palindromo"<<endl;
+		      break;
+
+	   case 0:cout<<"\n SALIR"<<endl;
+		      break;
+
+	   default:cout<<" Opcion invalida"<<endl;
+       }
+  getch();
+  system("cls");
+ }while(opc=!0);
+getch ();
+}
+
+
+float AREA(float a,float b, float c)
+{float sp,area;
+ sp=(a+b+c)/2;
+ area=sqrt(sp*(sp-a)*(sp-b)*(sp-c));
+ return area;
+}
+  
+
+void leervector(int A[],int n)
+{for(int i=0; i<n; i++)
+    {cout<<"\n A["<<i+1<<"] ";
+     cin>>A[i];
+    }
+}
+
+void concatenar(int n,int A[],int m,int B[],int C[])
+{
+ int i,L=0;
+ for(i=0;i<n;i++)
+    {C[L]=A[i];
+     L++;
+    }
+ for(int i=0;i<m;i++)
+    {C[L]=B[i];
+     L++;
+    }
+ for(L=0; L<m+n; L++)
+    {cout<<"\n C["<<L+1<<"] = "<<C[L];
+    }
+}
