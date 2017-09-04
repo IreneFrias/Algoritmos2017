@@ -103,7 +103,7 @@ void concatenar(int n,int A[],int m,int B[],int C[])
     {C[L]=A[i];
      L++;
     }
- for(int i=0;i<m;i++)
+ for(i=0;i<m;i++)
     {C[L]=B[i];
      L++;
     }
