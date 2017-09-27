@@ -1,0 +1,91 @@
+//Nombre: Irene Frias Harriague
+//Fecha: 27/09/2017
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "conio.h"
+#define MAX 50
+#define iva 0.13
+#define afp 0.121
+
+using namespace std;
+
+struct tEmpleado{
+	int nroemp;
+	string nombre;
+	string apellido;
+	string direccion;
+	int telef;
+	int cel;
+	float salariobruto;
+};
+
+void cargar(tEmpleado Empleado[], int N);
+void mostrar(tEmpleado Empleado[], int N);
+void calculo_salarioneto(tEmpleado Empleado[], int N,float x);
+
+void main()
+{int N;
+ float x;
+ tEmpleado Empleado[MAX];
+ do
+   {cout<<"\n Ingrese el numero de empleados: ";
+    cin>>N;
+   }while(N>MAX||N<0);
+ cargar(Empleado,N);
+ cout<<"\n\n";
+ mostrar(Empleado,N);
+ calculo_salarioneto(Empleado,N, x);
+ getch ();
+}
+
+
+void cargar(tEmpleado Empleado[], int N)
+{int cont=1;
+	for(int i=0;i<N;i++)
+    {
+	 Empleado[i].nroemp=cont;
+	 cout<<"\n Numero del empleado: "<<cont;
+     cout<<"\n Ingrese el nombre del empleado: ";
+     cin.ignore();
+	 getline(cin,Empleado[i].nombre);
+	 cout<<"\n Ingrese el apellido del empleado: ";
+	 getline(cin,Empleado[i].apellido);
+	 cout<<"\n Ingrese la direccion del empleado: ";
+	 getline(cin,Empleado[i].direccion);
+	 cout<<"\n Ingrese el telefono del empleado: ";
+	 cin>>Empleado[i].telef;
+	 cout<<"\n Ingrese el celular del empleado: ";
+	 cin>>Empleado[i].cel;
+	 cout<<"\n Ingrese el salario bruto del empleado: ";
+	 cin>>Empleado[i].salariobruto;
+	 cont++;
+    }
+}
+
+
+void mostrar(tEmpleado Empleado[], int N)
+{for(int i=0;i<N;i++)
+    {cout<<" "<<Empleado[i].nroemp;
+     cout<<" "<<Empleado[i].nombre;
+	 cout<<" "<<Empleado[i].apellido;
+	 cout<<" "<<Empleado[i].direccion;
+	 cout<<" "<<Empleado[i].telef;
+	 cout<<" "<<Empleado[i].cel;
+	 cout<<" "<<Empleado[i].salariobruto;
+	 cout<<"\n\n";
+    }
+}
+
+
+
+void calculo_salarioneto(tEmpleado Empleado[], int N,float x)
+{int cont=1;
+ for(int i=0;i<N;i++)
+    {Empleado[i].nroemp=cont;
+     x = Empleado[i].salariobruto - (Empleado[i].salariobruto*(afp+iva));
+	 cout<<"\n Salario del empleado "<<cont<<" es: "<<x;
+	 cont ++;
+    }
+}
