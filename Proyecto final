@@ -1,0 +1,103 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "conio.h"
+#define MAX 6
+using namespace std;
+
+struct tintereses{
+	int numero;
+	string interes;
+	string descripcion;
+};
+
+tintereses V[MAX];
+void insertar();
+void listar();
+void consultar();
+void modificar();
+void borrar();
+void clasificar();
+
+void main ()
+{int cont=1,n,opc,cat,N;
+ do
+   {
+    cout<<"\n\t\t\t     MENU";
+    cout<<"\n\t    [1] Insertar";
+    cout<<"\n\t    [2] Listar";
+    cout<<"\n\t    [3] Consultar";
+    cout<<"\n\t    [4] Modificar";
+    cout<<"\n\t    [5] Borrar";
+    cout<<"\n\t    [6] Clasificar los datos";
+	cout<<"\n\t    [6] Clasificar los datos";
+    cout<<"\n\n    [0] Salir ";
+	cout<<"\n\t    Seleccione una opcion: ";
+	cin>>opc;
+    switch(opc)
+       {case 1:insertar();
+           break;
+        case 2:listar();
+           break;
+        case 3:consultar();
+           break;
+        case 4:modificar();
+           break;
+        case 5:borrar();
+           break;
+	    case 6:clasificar();
+		   break;
+	    case 0:cout<<"\n Salir";
+		   break;
+	    default: cout<<"\n ERROR";
+		   break;
+       }
+   }while(opc=!0);
+
+getch();
+}
+
+
+void insertar(int N)
+{int N;
+ cout<<"\n Ingrese el numero de datos que desea insertar:";
+ cin>>N;
+ for(int i=0;i<N;i++)
+    {cout<<"\n Ingrese el ID: ";
+     cin>>V[i].numero;
+	 cout<<"\n Ingrese el interes: ";
+	 cin.ignore();
+	 getline(cin,V[i].interes);
+	 cout<<"\n Ingrese la descripcion: ";
+	 getline(cin,V[i].descripcion);
+    }
+ return N;
+}
+
+
+void listar(int N)
+{int N;
+ cout<<"\n LISTAR";
+ cout<<"\n ID"<<"\t";
+ cout<<"Intereses"<<"\t";
+ cout<<"Descripcion"<<"\t";
+ for(int i=0;i<N;i++)
+    {cout<<" "<<V[i].numero;
+     cout<<" "<<V[i].interes;
+	 cout<<" "<<V[i].descripcion;
+	 cout<<"\n\n";
+    }
+}
+
+
+void consultar()
+{int N;
+ cout<<"\n Ingrese el usuario que desea buscar: ";
+ for(int i=0;i<N;i++)
+   {
+   }
+}
+
+void modificar();
+void borrar();
+void clasificar();
