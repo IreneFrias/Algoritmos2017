@@ -1,0 +1,210 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define  MAX 10
+
+using namespace std;
+
+struct t_product {
+	int idproduct;
+	string descripcion;
+	int cantidad;
+	float costo;
+	float precio;
+	int estado;
+};
+
+t_product MAT[MAX][MAX];
+
+void cargar(int f,int c);
+void mostrar(int f,int c);
+void ordenar(int f,int c);
+void eliminar(int f,int c,int dato);
+void modificar(int f, int c, int dato);
+void consultar(int f,int c,int dato);
+void promedioalmacen(int f,int c);
+
+void main()
+{int f,c,dato,opc;
+ do
+  {cout<<"\n Ingrese el numero de filas: ";
+   cin>>f;
+   cout<<"\n Ingrese el numero de columnas: ";
+   cin>>c;
+  }while(f>MAX || c>MAX);
+   cout<<"\n Ingrese los datos: ";
+   cargar(f,c);
+   mostrar(f,c);
+  do
+   {cout<<"\n\t\t -----MENU-----";
+    cout<<"\n\t\t [1] ORDENAR";
+	cout<<"\n\t\t [2] ELIMINAR";
+	cout<<"\n\t\t [3] MODIFICAR";
+	cout<<"\n\t\t [4] CONSULTAR";
+	cout<<"\n\t\t [5] PROMEDIO ALMACEN";
+	cout<<"\n\t\t [0] SALIR";
+	cout<<"\n Elija la opcion que desee: ";
+	cin>>opc;
+	switch(opc)
+	      {case 1: ordenar(f, c);
+	               break;
+		  case 2:  cout<<"\n Ingrese el dato que desea eliminar: ";
+			       cin>>dato;
+			       eliminar(f, c, dato);
+				   break;
+		  case 3:  cout<<"\n Ingrese el dato que desea modificar: ";
+			       cin>>dato;
+			       modificar(f,c,dato);
+			       break;
+		  case 4:  cout<<"\n Ingrese el dato que desea consultar: ";
+			       cin>>dato;
+				   consultar(f,c,dato);
+				   break;
+		  case 5:  promedioalmacen(f,c);
+			       break;
+		  case 0:  cout<<"\n Salir";
+			       break;
+		  default: cout<<"\n ERROR";
+			       break;
+	      }
+	system ("csl");
+   }while(opc!=0);
+ getch();
+}
+
+
+void cargar(int f,int c)
+{for(int i=0;i<f;i++)
+   {for(int j=0;j<c;j++)
+       {cout<<"\n Ingrese el ID del producto: ";
+        cin>>MAT[i][j].idproduct;
+		cout<<"\n Ingrese la descripcion del producto: ";
+		cin.ignore();
+		getline(cin,MAT[i][j].descripcion);
+		cout<<"\n Ingrese la cantidad de producto: ";
+		cin>>MAT[i][j].cantidad;
+		cout<<"\n Ingrese el costo del producto: ";
+		cin>>MAT[i][j].costo;
+		cout<<"\n Ingrese el precio del producto: ";
+		cin>>MAT[i][j].precio;
+		MAT[i][j].estado=0;
+       }
+   }
+}
+
+
+void mostrar(int f,int c)
+{cout<<"ID elemento \t";
+ cout<<"Descripcion \t";
+ cout<<"Cantidad \t";
+ cout<<"Costo \t";
+ cout<<"Precio \t";
+ for(int i=0;i<f;i++)
+    {for(int j=0;j<c;j++)
+        {if(MAT[i][j].estado==0)       //No se toma en cuenta los elementos eliminados
+		  {cout<<MAT[i][j].idproduct;
+		   cout<<MAT[i][j].descripcion;
+		   cout<<MAT[i][j].cantidad;
+		   cout<<MAT[i][j].costo;
+		   cout<<MAT[i][j].precio;
+		   cout<<"\n\n";
+          }
+        }
+     }
+}
+
+
+void ordenar(int f,int c)
+{
+}
+
+
+void eliminar(int f,int c,int dato)
+{bool band=true;
+ for(int i=0;i<f;i++)
+   {for(int j=0;j<c;j++)
+       {if(MAT[i][j].idproduct==dato)
+          {MAT[i][j].estado=9;
+           band=false;
+          }
+       }
+   }
+ if(band!=false)
+	 cout<<"\n Elemento ingresado no encontrado en la base de datos";
+}
+
+
+void modificar(int f,int c,int dato)
+{bool band=true;
+ char resp;
+ for(int i=0;i<f;i++)
+   {for(int j=0;j<c;j++)
+       {if(MAT[i][j].idproduct==dato)
+          {band=false;
+           cout<<"\n Descripcion: "<<MAT[i][j].descripcion;
+		   cout<<"\n Si desea modificar el dato coloque s: ";
+		   cin>>resp;
+		   cin.ignore();
+		   if(resp=='s')
+		     {cout<<"\n Ingrese el nuevo dato: ";
+		      getline(cin,MAT[i][j].descripcion);
+		     }
+		   cout<<"\n Cantidad: "<<MAT[i][j].cantidad;
+		   cout<<"\n Si desea modificar el dato coloque s: ";
+		   cin>>resp;
+		   if(resp=='s')
+		     {cout<<"\n Ingrese el nuevo dato: ";
+		      cin>>MAT[i][j].cantidad;
+		     }
+		   cout<<"\n Costo: "<<MAT[i][j].costo;
+		   cout<<"\n Si desea modificar el dato coloque s: ";
+		   cin>>resp;
+		   if(resp=='s')
+		     {cout<<"\n Ingrese el nuevo dato: ";
+		      cin>>MAT[i][j].costo;
+		     }
+		   cout<<"\n Precio: "<<MAT[i][j].precio;
+		   cout<<"\n Si desea modificar el dato coloque s: ";
+		   cin>>resp;
+		   if(resp=='s')
+		     {cout<<"\n Ingrese el nuevo dato: ";
+		      cin>>MAT[i][j].precio;
+		     }
+          }
+      }
+  }
+if(band!=false)
+  {cout<<"\n Elemento ingresado no encontrado en la base de datos";
+  }
+}
+
+
+void consultar(int f,int c,int dato)
+{bool band=true;
+ for(int i=0;i<f;i++)
+   {for(int j=0;j<c;j++)
+       {if(MAT[i][j].idproduct==dato && MAT[i][j].estado==0)  //No se toma en cuenta los elementos eliminados
+          {cout<<"\n Descripcion: "<<MAT[i][j].descripcion;
+           cout<<"\n Cantidad: "<<MAT[i][j].cantidad;
+		   cout<<"\n Costo: "<<MAT[i][j].costo;
+		   cout<<"\n Precio: "<<MAT[i][j].precio;
+           band=false;
+          }
+       }
+   }
+ if(band!=false)
+	 cout<<"\n Elemento ingresado no encontrado en el base de datos";
+}
+
+
+void promedioalmacen(int f,int c)
+{float prom=0.00,s=0.00;
+ for(int i=1;i<=c;i++)
+    {for(int j=1;j<=f;j++)
+        {s=s+MAT[j][i].costo;
+        }
+    }
+ prom=s/f;
+ cout<<"\n El promedio del almacen es: "<<prom;
+}
