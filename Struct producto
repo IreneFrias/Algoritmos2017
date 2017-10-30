@@ -116,7 +116,18 @@ void mostrar(int f,int c)
 
 
 void ordenar(int f,int c)
-{
+{int aux;
+ for(int i=0;i<f;i++)
+    {for(int j=0;j<c-1;j++)
+        {for(int k=1;k<f;k++)
+	    {if(MAT[i][j]>MAT[i][k])
+	       {aux=MAT[i][k];
+	        MAT[i][k]=MAT[i][j];
+	        MAt[i][j]=aux;
+	       }
+	    }
+        }
+    }
 }
 
 
