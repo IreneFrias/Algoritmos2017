@@ -1,0 +1,109 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "conio.h"
+#define M 10
+using namespace std;
+
+struct tcliente
+{int ID[M];
+ string nombre;
+ string apellido;
+ int fecha;
+ int contrasena;
+};
+tcliente registro;
+
+
+struct tpropietario
+{int ID[M];
+ string establecimiento;
+ string descripcion;
+ string direccion;
+ int contrasena;
+};
+
+
+void registro_cliente();
+void registro_propietario();
+void inicio_propietario();
+void inicio_cliente();
+
+
+void main()
+{int opc1, opc2, opc3, opc4;
+ cout<<"\n ##############    ################   ###          ###    #########     ";
+ cout<<"\n ###                     ###          ####         ###    ###      ##   ";
+ cout<<"\n ###                     ###          #####        ###    ###       ##  ";
+ cout<<"\n ###                     ###          ### ##       ###    ###        ## ";
+ cout<<"\n ###                     ###          ###  ##      ###    ###         ##";
+ cout<<"\n ##############          ###          ###   ##     ###    ###         ##";
+ cout<<"\n ###                     ###          ###    ##    ###    ###         ##";
+ cout<<"\n ###                     ###          ###     ##   ###    ###        ## ";
+ cout<<"\n ###                     ###          ###      ##  ###    ###       ##  ";
+ cout<<"\n ###                     ###          ###       ## ###    ###      ##   ";
+ cout<<"\n ###               ################   ###        #####    #########     ";
+ cout<<"\n\n\n";
+ cout<<"\n ########      ###                   ###        ###########   ##########   ";
+ cout<<"\n ###    ##     ###                  ## ##       ###           ###          ";
+ cout<<"\n ###     ##    ###                 ##   ##      ###           ###          ";
+ cout<<"\n ###     ##    ###                ##     ##     ###           ###          ";
+ cout<<"\n ###     ##    ###               ##       ##    ###           ###          ";
+ cout<<"\n ###    ##     ###              ##         ##   ###           ##########   ";
+ cout<<"\n #######       ###             ###############  ###           ###          ";
+ cout<<"\n ###           ###             ##           ##  ###           ###          ";
+ cout<<"\n ###           ###             ##           ##  ###           ###          ";
+ cout<<"\n ###           ###             ##           ##  ###           ###          ";
+ cout<<"\n ###           #############   ##           ##  ###########   ##########   ";
+ cout<<"\n\n\n";
+ cout<<"\n\t\t\t        BIENVENIDO/A ";
+ do
+   {cout<<"[1]   Crear cuenta";
+    cout<<"[2]   Iniciar sesion";
+	cout<<"[0]   Salir";
+	cin>>opc1;
+	switch(opc1)
+	{case 1:
+	  {do
+	    {cout<<"\n Desea crear una cuenta de cliente o propietario";
+		  cout<<"[1]  Cliente";
+		  cout<<"[2]  Propietario";
+		  cout<<"[0]  Salir";
+		  cin>>opc2;
+		  switch(opc2)
+		    {case 1: registro_cliente(); break;
+			 case 2: registro_propietario(); break;
+			 case 3: cout<<"\n GRACIAS POR USAR LA APP FIND PLACE ;)"; break;
+		    }
+		}while(opc2<0 || opc2>2);
+	  }break;
+	case 2:
+	  {do
+		{cout<<"\n Desea iniciar sesion como cliente o propietario";
+		 cout<<"[1]  Cliente";
+		 cout<<"[2]  Propietario";
+		 cout<<"[0]  Salir";
+		 cin>>opc2;
+		 switch(opc2)
+		   {case 1: inicio_cliente();break;
+		    case 2: inicio_propietario();break;
+			case 3: cout<<"\n GRACIAS POR USAR LA APP FIND PLACE ;)";break;
+		   }
+		}while(opc2<=0 || opc2>2);
+	  }break;
+	case 3: cout<<"\n GRACIAS POR USARLA APP FIND PLACE ;)"; break;
+	default: cout<<"\n ERROR"; break;
+	}
+   }while(opc1!=0);
+ getch();
+}
+
+
+void registro_cliente()
+{for(j=0;j)
+ cout<<"\n Ingrese un ID: ";
+ for(int i=0;i<M;i++)
+    {cin>>registro.ID[i];
+    }
+ cout<<"\n Ingrese "
+}
