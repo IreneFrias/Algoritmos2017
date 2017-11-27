@@ -1,0 +1,36 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <stdio.h>
+
+using namespace std;
+
+struct regAmigos{
+	string nombre;
+	int edad;
+	char sexo;
+};
+
+regAmigos reg;
+
+void main(){
+	FILE *ptr;
+	cout<<"Introducir nombre: ";
+	do
+	  {getline(cin,reg.nombre);
+	  }while(reg.nombre.length()==0);
+	do
+	  {cout<<"Introducir edad: ";
+	   cin>>reg.edad;
+	  }while(reg.edad<1 || reg.edad>100);
+	do
+	 {cout<<"Introducir sexo: <F/M> ";
+	  cin>>reg.sexo;
+	 }while(reg.sexo!='F' && reg.sexo!='f' && reg.sexo!='M' && reg.sexo!='m');
+	ptr= fopen("amigos.dat","wb");
+	fwrite(&reg,sizeof(reg),1,ptr);
+	cout<<endl;
+	fclose(ptr);
+	getch();
+}
