@@ -1,0 +1,32 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <stdio.h>
+
+
+using namespace std;
+
+struct regAmigos{
+	string nombre;
+	int edad;
+	char sexo;
+};
+
+regAmigos reg;
+
+void elminar(int edad);
+
+void main(){
+	FILE *ptr;
+	ptr= fopen("amigos.dat","wb");
+	if(ptr!=NULL)
+	  {fread(&reg,sizeof(reg),1,ptr);
+	   cout<<reg.nombre<<" "<<reg.edad<<" "<<reg.sexo;
+	   fclose(ptr);
+	  }
+	else
+	  {cout<<"El archivo no existe";
+	  }
+	getch();
+}
